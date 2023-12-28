@@ -1,0 +1,62 @@
+Project Title: GameScore+ - Multiplayer Game Leaderboard and Analytics API
+Project Overview
+GameScore+ is an enhanced back-end project designed to provide leaderboard functionality, user authentication, and game analytics for multiplayer online games. It employs MVC principles, Sequelize ORM for database interactions, dual environments and databases for development and production, and utilizes .env files for storing environment variables and secrets.
+
+Main Features
+User Authentication and Authorization: Incorporates a secure user registration, login system and access control.
+Score Submission: Allows authenticated players to submit their scores after a game session.
+Leaderboard Retrieval: Fetches the list of top players based on their scores.
+Player Score Lookup: Provides a method to retrieve a specific player's score and rank.
+Periodic Score Reset: Sends automated email notifications to top players using Mailgun at each reset point.
+Game Analytics: Analyzes gameplay data to extract insights into player behavior and game trends.
+
+Models
+Users: Contains user details and credentials for authentication.
+Scores: Stores scores of individual game sessions for each user.
+Leaderboard: Stores scores.
+Game Analytics: Stores computed analytics data.
+
+Technology Stack
+Backend Language: Node.js with the Express.js framework to create the API.
+Database: Two MySQL databases (development and production), with Sequelize ORM for interaction and Beekeeper Studio for management.
+API Testing: Insomnia for testing API endpoints.
+Deployment: Docker for containerization with separate Dockerfiles for development and production environments, deployed on Google Cloud Run.
+Email Service: Mailgun for sending emails to top players.
+
+CRUD
+Create: POST to /users/register with JSON body containing user details (username, email, password).
+Read: GET to /users/profile with an Authorization header containing the user's token.
+Update: PUT to /users/profile with JSON body containing updated user details and an Authorization header containing the user's token.
+Delete: DELETE to /users/profile with an Authorization header containing the user's token.
+Scores
+
+Create: POST to /scores/submit with JSON body containing score details and an Authorization header containing the user's token.
+Read: GET to /scores/leaderboard to retrieve the list of top scores.
+Update: This operation is not applicable in the context of this API, as scores are immutable once submitted.
+Delete: This operation is not typically applicable, but could be implemented as DELETE to /scores/{scoreId} with an Authorization header containing the user's token, if you want users to be able to delete their scores.
+Game Analytics
+
+Create: POST to /analytics/submit with JSON body containing analytics data and an Authorization header containing the user's token.
+Read: GET to /analytics/{userId} with an Authorization header containing the user's token, to retrieve analytics for a specific user.
+Update: PUT to /analytics/{analyticsId} with JSON body containing updated analytics data and an Authorization header containing the user's token.
+Delete: DELETE to /analytics/{analyticsId} with an Authorization header containing the user's token.
+
+Project Timeline
+Day 1: Set up the project structure, create the MySQL database schemas using Beekeeper Studio for both development and production databases, initialize the Express.js application, and setup Sequelize.
+Day 2: Implement user registration and login system, ensuring proper authentication and authorization.
+Day 3: Implement the score submission endpoint, integrating it with the MySQL databases via Sequelize.
+Day 4: Develop the leaderboard retrieval endpoint.
+Day 5: Create the player score lookup functionality.
+Day 6: Implement the periodic score reset functionality and integrate with Mailgun to notify top players.
+Day 7-9: Implement the game analytics module.
+Day 10: Use Insomnia to perform comprehensive testing of all API endpoints and fix any detected bugs.
+Day 11-12: Create separate Dockerfiles for development and production, Dockerize the application, and deploy it to Google Cloud Run.
+Anticipated Challenges
+Performance: Handling a large number of simultaneous score submissions, fetch requests, and data analysis queries.
+Data Consistency: Ensuring accurate player scores, ranks, and analytics despite concurrent data submissions.
+Security: Implementing a secure and reliable user authentication system and protecting sensitive data.
+Email Delivery: Ensuring reliable delivery of emails to the top players at each leaderboard reset.
+Conclusion (continued)
+The GameScore+ project is a comprehensive solution for multiplayer game developers seeking to add a competitive edge and data-driven decision-making capabilities to their games. This project encapsulates key elements of back-end development, including user authentication, database interaction, API development, testing, containerization, deployment, data analytics, and integration with an external email service.
+
+By adhering to MVC principles, using Sequelize ORM, employing dual environments and databases, and securely storing environment variables, it meets the modern standards of back-end applications. This project will demonstrate your ability to create a professional, well-structured, secure and robust backend system, making it a strong addition to your portfolio when job hunting. It also covers a wide range of skills and practices commonly sought after by employers, enhancing your visibility and attractiveness as a potential candidate for back-end developer positions.

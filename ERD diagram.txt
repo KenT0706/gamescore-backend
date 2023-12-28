@@ -1,0 +1,10 @@
++-------------+       +---------+       +-------------+       +----------------+
+|   Users     |       | Scores  |       | Leaderboard |       |Guide  |
++-------------+       +---------+       +-------------+       +----------------+
+| - id (PK)   |1   * | - id (PK)|1   * | - id (PK)   |1   * | - id (PK)      |
+| - username  |------<| - userId|------<| - userId    |------<| - userId       |
+| - email     |       | - score  |       | - score     |       | - gameDuration |
+| - password  |       | - time   |       | - rank      |       | - actions      |
+| - createdAt |       | - createdAt      | - updatedAt |       | - createdAt    |
+| - updatedAt |       | - updatedAt      |             |       | - updatedAt    |
++-------------+       +---------+       +-------------+       +----------------+

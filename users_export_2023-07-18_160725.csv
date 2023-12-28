@@ -1,0 +1,8 @@
+id,name,email,password,is_verified,role,created_at,updated_at,region_id,team_id,game_id
+1,John Doe,johndoe@jdoe.co,$2b$10$Y81pQv.8B3xrNEapQ7.LTe5ijPUcYPzN3Qep3jCoCwoFjdp8adli2,0,user,2023-07-05 12:48:59,2023-07-05 12:48:59,,,
+4,Joe Doe,joe@jdoe.co,$2b$10$I82rt5G5/AZYEY1WjGnusO462MOdw1YZ1k06dSrYOELd7hOr8as.O,0,admin,2023-07-06 04:35:17,2023-07-06 04:35:17,,,
+5,Joe Doe2,joe2@jdoe.co,$2b$10$SONqvGCNLZOlz/VmM5bZpOu2uy2kWnREzS2HQ3TRUMHEljFUXnu3u,0,admin,2023-07-14 04:09:05,2023-07-14 04:09:05,,,
+6,Joe Doe3,joe3@jdoe.co,$2b$10$P4SyNqDxKIgwcjOz32LHlOCgdE.mpUhpe/bu5YFf2KayBE3kPlcbq,0,admin,2023-07-14 04:09:49,2023-07-14 04:09:49,,,
+7,Joe Doe5,joe5@jdoe.co,$2b$10$JgOMF9dp1VbvZK96ZkmIuuylnM.jnIAx3hu50vsm4dnY/D0XHR5g2,0,admin,2023-07-14 04:11:26,2023-07-14 04:11:26,,,
+9,Joe Doe6,joe6@jdoe.co,$2b$10$Yv0rPaoShW/m2OII0lNwyODrOIV6TMKtVwS7qyny9XRrWYoXEoifC,0,admin,2023-07-14 05:13:32,2023-07-14 05:13:32,,,
+11,Joe Doe7,joe7@jdoe.co,$2b$10$2eu7WijBmHnRH.ZXVtiFAeCEjwe5.jGOmZ2QwAFef6p8st6.oP872,0,admin,2023-07-14 05:22:33,2023-07-14 05:22:33,1,,

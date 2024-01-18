@@ -1,4 +1,4 @@
-const Leaderboard = require("../models/Leaderboard.js");
+const Leaderboard = require("../models/leaderboard.js");
 
 async function getTopPlayers(req, res) {
   try {

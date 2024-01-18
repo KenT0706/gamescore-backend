@@ -3,7 +3,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
     "dev": "NODE_ENV=development nodemon app.js",
-    "prod": "NODE_ENV=production node app.js"
+    "prod": "NODE_ENV=production node app.js",
+    "build:prod": "docker build -t gamescore-api-prod:1.0 -f Dockerfile .",
+    "run:prod": "docker run -d -p 8080:8080 --name gamescore-api-prod gamescore-api-prod:1.0",
+    "clean:prod": "docker stop gamescore-api-prod && docker rm gamescore-api-prod"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",

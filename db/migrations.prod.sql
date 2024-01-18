@@ -80,3 +80,5 @@ CREATE TABLE games (
 
 ALTER TABLE users 
 ADD FOREIGN KEY (game_id) REFERENCES games(id);
+
+ALTER TABLE users ADD COLUMN score INT;

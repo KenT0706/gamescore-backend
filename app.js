@@ -43,6 +43,8 @@ const leaderboardRoutes = require("./routes/leaderboard.routes.js")
 const gamesRoutes = require("./routes/games.routes.js")
 const authRoutes = require("./routes/auth.routes.js")
 
+app.use('/uploads', express.static('./uploads'));
+
 app.use("/users", usersRoutes)
 app.use("/teams", teamsRoutes)
 

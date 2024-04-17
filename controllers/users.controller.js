@@ -1,6 +1,8 @@
 const { log } = require("console");
 const User = require("../models/user.js");
 const { hashPassword } = require("../utils/bcrypt.util.js");
+const multer = require('multer');
+
 
 async function getAllUsers(req, res) {
   try {
@@ -77,6 +79,36 @@ async function updateUser(req, res) {
     res.status(500).json({ error: error });
   }
 }
+async function updateUserAvatar(req, res) {
+  try {
+    const storage = multer.memoryStorage(); // Store files in memory
+
+    const user = await User.findByPk(parseInt(req.params.userId));
+    if (user.id !== req.user.id) {
+      throw "Cannot update other people's avatar";
+    } else {
+      const avatar = req.file;
+
+      const fs = require('fs');
+      const uniqueFileName = `${Date.now()}_${avatar.originalname}`;
+      const uploadDirectory = `uploads/avatars/${req.user.id}`;
+      if (!fs.existsSync(uploadDirectory)) {
+        fs.mkdirSync(uploadDirectory);
+      }
+      fs.writeFileSync(`${uploadDirectory}/${uniqueFileName}`, avatar.buffer);
+  
+      const updatedUser = await user.update(
+        {
+          ...user,
+          avatar: uniqueFileName
+        }
+      );
+      res.json(updatedUser);
+    }
+  } catch (error) {
+    res.status(500).json({ error: error });
+  }
+}
 
 async function deleteUser(req, res) {
   try {
@@ -132,6 +164,7 @@ module.exports = {
   getUserById,
   createUser,
   updateUser,
+  updateUserAvatar,
   deleteUser,
   verifyByUserId,
 };

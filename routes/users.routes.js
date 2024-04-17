@@ -1,4 +1,5 @@
-const express  = require('express')
+const express = require('express')
+const multer = require('multer')
 var cors = require('cors')
 var app = express()
 app.use(cors())
@@ -6,6 +7,11 @@ app.use(cors())
 const router = express.Router()
 const usersController = require('../controllers/users.controller.js')
 const { verifyToken, checkRole } = require("../middlewares/auth.middleware.js")
+
+const storage = multer.memoryStorage(); // Store files in memory
+const upload = multer({ storage: storage });
+
+
 
 router.get('/', usersController.getAllUsers)
 router.get('/:userId', usersController.getUserById)
@@ -23,6 +29,14 @@ router.put(
     verifyToken,
     checkRole(['user', 'admin']),
     usersController.updateUser
+)
+
+router.put(
+    '/:userId/avatar',
+    upload.single('avatar'),
+    verifyToken,
+    checkRole(['user', 'admin']),
+    usersController.updateUserAvatar
 )
 
 router.delete(

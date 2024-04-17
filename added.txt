@@ -1,5 +1,3 @@
-1)leaderboard can have databse for scores for admin to edit and move around
-1.5) users can submit their own scores(bonus:admin can auth score)
-2)searh input can display specific user
-3)three dummy pictyres make them not dummy:rapidAPI
-4)look up vue.js cript setup
+
+5)docker tag gamescore-api-prod:2.0 asia.gcr.io/neon-mesh-418402/gamescore-api-prod:2.0
+6)docker push asia.gcr.io/neon-mesh-418402/gamescore-api-prod:2.0
